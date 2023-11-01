@@ -2,4 +2,66 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: url("../images/cover-image-light.png");
+  background-repeat: no-repeat;
+  object-fit: contain;
+  object-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  padding: 20px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, calc(50vw - 20px));
+  grid-template-rows: repeat(3, min-content);
+  height: 100vh;
+  min-height: 768px;
+}
+
+.header__theme-menu {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 0 13px 0 13px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--text-color);
+}
+
+.header__title {
+  font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  font-weight: 700;
+  text-shadow: 4px 4px 0 var(--accent-color);
+  color: var(--header-title-color);
+  line-height: 0.95;
+  grid-column-start: 1;
+  grid-column: span 2;
+}
+
+.header__title-decor {
+  grid-column-start: 2;
+}
+
+.title-decor {
+  background-color: var(--decor-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.13;
 }
