@@ -17,14 +17,37 @@
   padding: 20px;
 }
 
+/* Секция header */
+
 .header {
-  margin-bottom: 60px;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, calc(50vw - 20px));
-  grid-template-rows: repeat(3, 1fr);
-  height: 100vh;
-  min-height: 768px;
+  grid-template-rows: repeat(3, min-content);
+  min-height: calc(100vh - 40px);
   margin-bottom: 60px;
+}
+
+.corner::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-left: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  left: 0;
+  bottom: 0;
+}
+
+.corner::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-right: 1px solid var(--text-color);
+  border-top: 1px solid var(--text-color);
+  right: 0;
+  top: 0;
 }
 
 .header__theme-menu {
@@ -52,6 +75,10 @@
 }
 
 .header__title {
+  margin-top: 26vw;
+}
+
+.title {
   font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
   font-weight: 700;
   text-shadow: 4px 4px 0 var(--accent-color);
@@ -63,6 +90,7 @@
 
 .header__title-decor {
   grid-column-start: 2;
+  margin-top: 11vw;
 }
 
 .title-decor {
@@ -73,22 +101,20 @@
 }
 
 /* Секция main */
-
 .main {
   display: flex;
   flex-direction: column;
   gap: 80px;
+  margin-bottom: 60px;
 }
 
 .section {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: auto;
+  grid-auto-columns: auto;
   gap: 20px;
 }
 
 .section__title {
-  grid-row: 1 / -4;
   font-weight: 700;
 }
 
@@ -96,17 +122,19 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  grid-column-start: 2;
 }
 
 .align-row {
   flex-direction: row;
-  grid-row: 2;
+  grid-column-start: 1;
 }
 
 .section__article {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 30vw;
 }
 
 .title-decor-regular {
@@ -114,4 +142,41 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.13;
+}
+
+.title-full-width {
+  grid-column: span 2;
+}
+
+.section__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 30vw);
+  gap: 20px;
+}
+
+.section__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.two-columns-img {
+  grid-column: span 2;
+}
+
+.two-rows-img {
+  grid-row: span 2;
+}
+
+/* Секция footer */
+
+.footer {
+  width: 100%;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  position: relative;
 }
