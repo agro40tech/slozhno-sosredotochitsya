@@ -21,7 +21,7 @@
 .header {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, calc(50vw - 20px));
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, min-content);
   min-height: 100vh;
   padding: 20px;
@@ -100,7 +100,7 @@
   font-weight: 700;
   text-shadow: 4px 4px 0 var(--shadow-text-color);
   color: var(--header-title-color);
-  line-height: 0.95;
+  line-height: 82.5%;
   grid-column-start: 1;
   grid-column: span 2;
 }
@@ -122,15 +122,15 @@
 .main {
   display: flex;
   flex-direction: column;
+  max-width: 100vw;
   gap: 80px;
-
   padding: 0 20px 0 20px;
   margin-bottom: 60px;
 }
-
+/* 
 .section {
   width: 100%;
-}
+} */
 
 .grid-two-columns {
   display: grid;
@@ -229,4 +229,92 @@
   align-items: center;
   position: relative;
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .header__theme-menu {
+    margin-top: 23vw;
+    justify-content: end;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+  }
+
+  .header__title {
+    margin-top: 20vw;
+  }
+
+  .header__title-decor {
+    margin-top: 20vw;
+  }
+
+  .grid-two-columns {
+    display: grid;
+    grid-template-columns: 31vw 61vw;
+    gap: 20px;
+  }
+
+  .grid-three-columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section__gallery {
+    grid-template-columns: repeat(3, 29.8vw);
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 40px;
+  }
+
+  .corner::before {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .corner::after {
+    right: 10px;
+    top: 10px;
+  }
+
+  .header__theme-menu {
+    margin-top: 18.9vw;
+  }
+
+  .header__title {
+    margin-top: 17vw;
+    margin-left: 0;
+  }
+
+  .header__title-decor {
+    margin-top: 16vw;
+  }
+
+  .main {
+    padding: 0 10px 0 10px;
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+
+  .grid-two-columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section__title {
+    max-width: 100%;
+  }
+
+  .section__gallery {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+  }
 }
