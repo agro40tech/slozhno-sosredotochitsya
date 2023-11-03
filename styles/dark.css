@@ -10,3 +10,28 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+
+/* Надпись REC в темной теме вправом верху */
+
+.page.theme_dark .decoration-block {
+  position: absolute;
+  top: 20px;
+  right: 29px;
+  color: var(--accent-color);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.page.theme_dark .decoration-block::before {
+  content: "REC";
+}
+
+.page.theme_dark .decoration-block::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  background-color: var(--accent-color);
+}

@@ -2,12 +2,34 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
-:root {
+.page.theme_light {
   --font-main: "IBM Plex mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --background-img-url: url("../images/cover-image-light.png");
 
-  --background-color: #fff1f7;
   --text-color: #353430;
-  --accent-color: #ff0070;
-  --decor-color: #ff8dcb;
   --header-title-color: #ffc2e6;
+
+  --accent-color: var(--text-color);
+  --shadow-text-color: #ff0070;
+
+  --button-hover-color: rgba(50, 49, 45, 0.4);
+
+  --decor-text-color: var(--text-color);
+  --decor-background-color: #ff8dcb;
+}
+
+.page.theme_dark {
+  --font-main: "IBM Plex mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --background-img-url: url("../images/cover-image-dark.png");
+
+  --text-color: #f1b2ce;
+  --header-title-color: #db00ff;
+
+  --accent-color: #ff0070;
+  --shadow-text-color: var(--accent-color);
+
+  --button-hover-color: rgba(255, 0, 112, 0.4);
+
+  --decor-text-color: #000028;
+  --decor-background-color: var(--accent-color);
 }
