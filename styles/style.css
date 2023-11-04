@@ -13,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 20px; */
 }
 
 /* Секция header */
@@ -28,7 +27,7 @@
   margin-bottom: 60px;
 }
 
-.corner::before {
+.decorated-zone::before {
   content: "";
   position: absolute;
   width: 25px;
@@ -39,7 +38,7 @@
   bottom: 20px;
 }
 
-.corner::after {
+.decorated-zone::after {
   content: "";
   position: absolute;
   width: 25px;
@@ -50,16 +49,35 @@
   top: 20px;
 }
 
-/* Скрывает блок из сетки grid */
+/* Надпись REC в темной теме вправом верху */
 .decoration-block {
+  display: var(--visible-decoration-block);
   position: absolute;
+  top: 20px;
+  right: 29px;
+  color: var(--accent-color);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.decoration-block::before {
+  content: "REC";
+}
+
+.decoration-block::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  background-color: var(--accent-color);
 }
 
 .header__theme-menu {
   display: flex;
   justify-content: center;
   grid-column: span 2;
-  width: 100%;
 }
 
 .header__theme-menu-list {
@@ -73,6 +91,7 @@
   border: 0;
   cursor: pointer;
   text-transform: lowercase;
+  font-style: normal;
   font-size: 18px;
   color: var(--accent-color);
 }
@@ -91,12 +110,12 @@
 }
 
 .header__title {
-  margin-top: 26vw;
+  margin-top: 27vw;
   margin-left: -17px;
 }
 
 .title {
-  font-size: clamp(7.25rem, 5.7694rem + 6.3174vw, 9.8125rem);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   font-weight: 700;
   text-shadow: 4px 4px 0 var(--shadow-text-color);
   color: var(--header-title-color);
@@ -107,7 +126,7 @@
 
 .header__title-decor {
   grid-column-start: 2;
-  margin-top: 10vw;
+  margin-top: 11.2vw;
 }
 
 .title-decor {
@@ -122,31 +141,27 @@
 .main {
   display: flex;
   flex-direction: column;
-  max-width: 100vw;
   gap: 80px;
   padding: 0 20px 0 20px;
-  margin-bottom: 60px;
+  /* 55 потому что 5px занимет картинка с необычнм отступом в галлерее */
+  margin-bottom: 55px;
 }
-/* 
+
 .section {
-  width: 100%;
-} */
-
-.grid-two-columns {
   display: grid;
-  grid-template-columns: 31vw 63vw;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.grid-three-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 30.74vw);
-  gap: 20px;
+.align-two-columns {
+  grid-column: span 2;
 }
 
 .section__title {
   font-weight: 700;
-  max-width: 31vw;
+  max-width: 30vw;
+  font-size: 18px;
+  line-height: 130%;
   color: var(--accent-color);
 }
 
@@ -160,11 +175,6 @@
   gap: 20px;
 }
 
-/* .align-row {
-  flex-direction: row;
-  grid-column-start: 1;
-} */
-
 .section__article {
   display: flex;
   flex-direction: column;
@@ -175,6 +185,7 @@
   font-size: 18px;
   font-style: normal;
   line-height: 130%;
+  height: 100%;
 }
 
 .section__link {
@@ -199,9 +210,14 @@
 
 .section__gallery {
   display: grid;
-  grid-template-columns: repeat(3, 30.74vw);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 20px;
+}
+
+/* Необходим что бы убрать гриды у секции с картинками */
+.grid-none {
+  display: block;
 }
 
 .section__img {
@@ -219,8 +235,11 @@
   grid-row: span 2;
 }
 
-/* Секция footer */
+.accent-padding {
+  padding-top: 5px;
+}
 
+/* Секция footer */
 .footer {
   width: 100%;
   min-height: 100vh;
@@ -233,35 +252,46 @@
 
 @media (max-width: 768px) {
   .header__theme-menu {
-    margin-top: 23vw;
+    margin-top: 22.3vw;
     justify-content: end;
   }
 
   .header__theme-menu-list {
     flex-direction: column;
+    gap: 13px;
   }
 
   .header__title {
-    margin-top: 20vw;
+    margin-top: 23vw;
+  }
+
+  .title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
   .header__title-decor {
-    margin-top: 20vw;
+    margin-top: 21vw;
   }
 
-  .grid-two-columns {
-    display: grid;
-    grid-template-columns: 31vw 61vw;
-    gap: 20px;
+  .main {
+    margin-bottom: 60px;
   }
 
-  .grid-three-columns {
+  .section {
+    grid-template-columns: minmax(100px, 1fr) 2fr;
+  }
+
+  .align-two-columns {
+    grid-column: unset;
+  }
+
+  .flex-style {
     display: flex;
     flex-direction: column;
   }
 
-  .section__gallery {
-    grid-template-columns: repeat(3, 29.8vw);
+  .accent-paddig {
+    padding-top: 0;
   }
 }
 
@@ -273,27 +303,32 @@
     margin-bottom: 40px;
   }
 
-  .corner::before {
+  .decorated-zone::before {
     left: 10px;
     bottom: 10px;
   }
 
-  .corner::after {
+  .decorated-zone::after {
     right: 10px;
     top: 10px;
   }
 
+  .decoration-block {
+    top: 10px;
+    right: 19px;
+  }
+
   .header__theme-menu {
-    margin-top: 18.9vw;
+    margin-top: 17.5vw;
   }
 
   .header__title {
-    margin-top: 17vw;
+    margin-top: 18vw;
     margin-left: 0;
   }
 
   .header__title-decor {
-    margin-top: 16vw;
+    margin-top: 15vw;
   }
 
   .main {
@@ -302,7 +337,7 @@
     margin-bottom: 40px;
   }
 
-  .grid-two-columns {
+  .section {
     display: flex;
     flex-direction: column;
   }
@@ -314,7 +349,11 @@
   .section__gallery {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: -8px;
     gap: 10px;
+  }
+
+  .accent-padding {
+    margin-top: -5px;
   }
 }
