@@ -250,6 +250,10 @@
   padding: 20px;
 }
 
+.footer__title {
+  text-shadow: 2px 2px 0px var(--shadow-text-color);
+}
+
 @media (max-width: 768px) {
   .header__theme-menu {
     margin-top: 22.3vw;
@@ -267,6 +271,7 @@
 
   .title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    text-shadow: 4px 4px 0px var(--decor-background-color);
   }
 
   .header__title-decor {
