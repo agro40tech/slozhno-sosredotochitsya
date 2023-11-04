@@ -56,6 +56,8 @@
 
     --decor-text-color: var(--text-color);
     --decor-background-color: #ff8dcb;
+
+    --visible-decoration-block: none;
   }
 }
 
