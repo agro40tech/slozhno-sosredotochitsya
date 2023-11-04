@@ -39,5 +39,7 @@
 
     --decor-text-color: #000028;
     --decor-background-color: var(--accent-color);
+
+    --visible-decoration-block: inline-block;
   }
 }
