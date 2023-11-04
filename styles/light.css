@@ -5,5 +5,37 @@
 */
 
 .page.theme_light {
-  /* --text-color: #353430; */
+  --background-img-url: url("../images/cover-image-light.png");
+
+  --text-color: #353430;
+  --header-title-color: #ffc2e6;
+
+  --accent-color: var(--text-color);
+  --shadow-text-color: #ff0070;
+
+  --button-hover-color: rgba(50, 49, 45, 0.4);
+
+  --decor-text-color: var(--text-color);
+  --decor-background-color: #ff8dcb;
+
+  --visible-decoration-block: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-img-url: url("../images/cover-image-light.png");
+
+    --text-color: #353430;
+    --header-title-color: #ffc2e6;
+
+    --accent-color: var(--text-color);
+    --shadow-text-color: #ff0070;
+
+    --button-hover-color: rgba(50, 49, 45, 0.4);
+
+    --decor-text-color: var(--text-color);
+    --decor-background-color: #ff8dcb;
+
+    --visible-decoration-block: none;
+  }
 }
