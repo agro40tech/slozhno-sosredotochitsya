@@ -5,6 +5,7 @@
   font-family: var(--font-main);
   color: var(--text-color);
   background-image: var(--background-img-url);
+  background-color: var(--backup-background-color);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
