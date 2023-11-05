@@ -10,12 +10,14 @@
     чем стили в медиазапросе предпочтений пользователя
   */
   --background-img-url: url("../images/cover-image-dark.png");
+  --backup-background-color: #000028;
 
   --text-color: #f1b2ce;
   --header-title-color: #db00ff;
 
   --accent-color: #ff0070;
   --shadow-text-color: var(--accent-color);
+  --shadow-link-color: var(--accent-color);
 
   --button-hover-color: rgba(255, 0, 112, 0.4);
 
@@ -23,17 +25,21 @@
   --decor-background-color: var(--accent-color);
 
   --visible-decoration-block: inline-block;
+
+  background-color: var(--backup-background-color, #000028);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background-img-url: url("../images/cover-image-dark.png");
+    --backup-background-color: #000028;
 
     --text-color: #f1b2ce;
     --header-title-color: #db00ff;
 
     --accent-color: #ff0070;
     --shadow-text-color: var(--accent-color);
+    --shadow-link-color: var(--accent-color);
 
     --button-hover-color: rgba(255, 0, 112, 0.4);
 
@@ -41,5 +47,7 @@
     --decor-background-color: var(--accent-color);
 
     --visible-decoration-block: inline-block;
+
+    background-color: var(--backup-background-color, #000028);
   }
 }

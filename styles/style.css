@@ -16,13 +16,13 @@
 }
 
 /* Секция header */
-
 .header {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, min-content);
-  min-height: 100vh;
+  grid-template-rows: 1fr min-content 1fr;
+  height: 100vh;
+  width: 100%;
+  min-height: 668px;
   padding: 20px;
   margin-bottom: 60px;
 }
@@ -70,14 +70,13 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  box-shadow: 0 0 4px 2px var(--accent-color);
   background-color: var(--accent-color);
 }
 
 .header__theme-menu {
   display: flex;
   justify-content: center;
-  grid-column: span 2;
 }
 
 .header__theme-menu-list {
@@ -100,17 +99,20 @@
   outline: 1px solid var(--button-hover-color);
 }
 
-.header__theme-menu-button:focus-visible {
+.header__theme-menu-button:focus {
   outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid var(--accent-color);
 }
 
 .header__theme-menu-button_active {
   outline: 1px solid var(--accent-color);
+  pointer-events: none;
 }
 
 .header__title {
-  margin-top: 27vw;
   margin-left: -17px;
 }
 
@@ -120,13 +122,12 @@
   text-shadow: 4px 4px 0 var(--shadow-text-color);
   color: var(--header-title-color);
   line-height: 82.5%;
-  grid-column-start: 1;
-  grid-column: span 2;
 }
 
 .header__title-decor {
-  grid-column-start: 2;
-  margin-top: 11.2vw;
+  justify-self: end;
+  align-self: center;
+  max-width: calc(50vw - 20px);
 }
 
 .title-decor {
@@ -153,7 +154,7 @@
   gap: 20px;
 }
 
-.align-two-columns {
+.columns {
   grid-column: span 2;
 }
 
@@ -189,12 +190,27 @@
 }
 
 .section__link {
-  text-shadow: 1px 2px 0 var(--shadow-text-color);
+  position: relative;
+  text-shadow: 1px 2px 0 var(--shadow-link-color);
   text-decoration: none;
 }
 
+.section__link:focus {
+  outline: 0;
+}
+
 .section__link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.section__link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  height: 1px;
+  width: 100%;
+  background-color: var(--text-color);
 }
 
 .section__link:focus-visible {
@@ -216,7 +232,7 @@
 }
 
 /* Необходим что бы убрать гриды у секции с картинками */
-.grid-none {
+.gallery {
   display: block;
 }
 
@@ -227,12 +243,20 @@
   object-position: center;
 }
 
-.two-columns-img {
+.section__img:first-child {
   grid-column: span 2;
 }
 
-.two-rows-img {
+.section__img:nth-child(2) {
   grid-row: span 2;
+}
+
+.section__img:nth-child(3) {
+  grid-row: span 2;
+}
+
+.section__img:last-child {
+  grid-column: span 2;
 }
 
 .accent-padding {
@@ -242,7 +266,8 @@
 /* Секция footer */
 .footer {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 668px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -256,7 +281,7 @@
 
 @media (max-width: 768px) {
   .header__theme-menu {
-    margin-top: 22.3vw;
+    align-self: center;
     justify-content: end;
   }
 
@@ -265,17 +290,9 @@
     gap: 13px;
   }
 
-  .header__title {
-    margin-top: 23vw;
-  }
-
   .title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     text-shadow: 4px 4px 0px var(--decor-background-color);
-  }
-
-  .header__title-decor {
-    margin-top: 21vw;
   }
 
   .main {
@@ -286,7 +303,7 @@
     grid-template-columns: minmax(100px, 1fr) 2fr;
   }
 
-  .align-two-columns {
+  .columns {
     grid-column: unset;
   }
 
@@ -300,10 +317,8 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 620px) {
   .header {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
     margin-bottom: 40px;
   }
@@ -323,17 +338,12 @@
     right: 19px;
   }
 
-  .header__theme-menu {
-    margin-top: 17.5vw;
-  }
-
   .header__title {
-    margin-top: 18vw;
     margin-left: 0;
   }
 
   .header__title-decor {
-    margin-top: 15vw;
+    max-width: 100%;
   }
 
   .main {
@@ -347,6 +357,10 @@
     flex-direction: column;
   }
 
+  .gallery {
+    gap: 0;
+  }
+
   .section__title {
     max-width: 100%;
   }
@@ -354,11 +368,7 @@
   .section__gallery {
     display: flex;
     flex-direction: column;
-    margin-top: -8px;
     gap: 10px;
-  }
-
-  .accent-padding {
-    margin-top: -5px;
+    margin-top: 10px;
   }
 }

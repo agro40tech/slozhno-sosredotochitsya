@@ -5,5 +5,5 @@
 
 /* Общие переменные */
 :root {
-  --font-main: "IBM Plex mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-main: "IBM Plex mono", mono, monospace;
 }
